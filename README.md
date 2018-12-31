@@ -8,4 +8,4 @@ Mechapod is built using [Javacord](https://github.com/Javacord/Javacord) and as 
 This code is all a passion project of mine and is something that I plan on working on as I have time and as I see fit. Any command reccomendations and general improvements are greatly appreciated, along with spellchecking my horrible spelling. Thanks for looking!
 
 # How to
-To unleash an unholy fire storm of flaming hot mechanized shit posts, all you must do is download the latest release under the release tab. Warning: I am not responsible for any damage, and I cannot garuntee that this code will not cause your computer to explode or that it will not become more funny than you.
+To unleash an unholy fire storm of flaming hot mechanized shit posts, all you must do is download the latest release under the [release tab](https://github.com/rbuxton1/newmechapod/releases). Warning: I am not responsible for any damage, and I cannot garuntee that this code will not cause your computer to explode or that it will not become more funny than you.
