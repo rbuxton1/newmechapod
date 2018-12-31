@@ -8,4 +8,12 @@ Mechapod is built using [Javacord](https://github.com/Javacord/Javacord) and as 
 This code is all a passion project of mine and is something that I plan on working on as I have time and as I see fit. Any command reccomendations and general improvements are greatly appreciated, along with spellchecking my horrible spelling. Thanks for looking!
 
 # How to
-To unleash an unholy fire storm of flaming hot mechanized shit posts, all you must do is download the latest release under the [release tab](https://github.com/rbuxton1/newmechapod/releases). Warning: I am not responsible for any damage, and I cannot garuntee that this code will not cause your computer to explode or that it will not become more funny than you.
+To unleash an unholy fire storm of flaming hot mechanized shit posts, all you must do is download the latest release under the [release tab](https://github.com/rbuxton1/newmechapod/releases). 
+
+## IMPORTANT!
+To get it to work as smoothly as possible you should create both a directory called ``talker`` and a file called ``pod.config``, and atleast for the first run you should run the executable with sudo (or elevated command prompt) status. This is because it will need to create some files in the ``talker`` directory and some systems have problems with that with regular user privileges.
+
+## ALSO IMPORTANT!
+This code does not have a GUI and should be ran through a terminal. I recommend buying a raspberry pi, ssh-ing into it, and running the Java command (``sudo java -jar mechapod-[version]``) in a terminal multiplexer like Screen. I do not know how to do this on Windows. If someone knows how please let me know!
+
+Warning: I am not responsible for any damage, and I cannot garuntee that this code will not cause your computer to explode or that it will not become more funny than you. 
