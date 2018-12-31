@@ -24,7 +24,7 @@ public class RemindCommand extends Command{
 				timer.schedule(new TimerTask() {
 					@Override
 					public void run() {
-						String res = "Automated mechapod reminder from " + args[0] + "ago";
+						String res = "Automated mechapod reminder from " + args[0] + " ago";
 						if(args.length > 1) res = res + ": ``" + args[1] + "``";
 						e.getMessageAuthor().asUser().get().sendMessage(res);
 						e.getMessage().addReaction(EmojiParser.parseToUnicode(":envelope:"));
@@ -34,7 +34,7 @@ public class RemindCommand extends Command{
 				timer.schedule(new TimerTask() {
 					@Override
 					public void run() {
-						String res = "Automated mechapod reminder from " + args[0];
+						String res = "Automated mechapod reminder from " + args[0] + " ago";
 						if(args.length > 1) res = res + ": ``" + args[1] + "``";
 						e.getMessageAuthor().asUser().get().sendMessage(res);
 						e.getMessage().addReaction(EmojiParser.parseToUnicode(":envelope:"));
@@ -44,8 +44,13 @@ public class RemindCommand extends Command{
 				timer.schedule(new TimerTask() {
 					@Override
 					public void run() {
-						String res = "Automated mechapod reminder from " + args[0];
-						if(args.length > 1) res = res + ": ``" + args[1] + "``";
+						String res = "Automated mechapod reminder from " + args[0] + " ago";
+						if(args.length > 1) {
+							res = res + ": ``" ;
+							for(int i = 1; i < args.length; i++)
+								res = res + args[i] + " ";
+							res = res + "``";
+						}
 						e.getMessageAuthor().asUser().get().sendMessage(res);
 						e.getMessage().addReaction(EmojiParser.parseToUnicode(":envelope:"));
 					}}, TimeUnit.MINUTES.toMillis(Long.parseLong(args[0].substring(0, args[0].length()-1))));
