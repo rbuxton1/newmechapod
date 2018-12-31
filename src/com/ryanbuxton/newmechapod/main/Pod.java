@@ -140,6 +140,8 @@ public class Pod {
 			}
 			if(!prefs.getBoolean("allowReddit", false))cmds.add(new TalkScheduleCommand(prefix, api, talker, null, false));
 			cmds.add(new ReloadPrefCommand(prefix, prefs));
+			cmds.add(new RemindCommand(prefix));
+			cmds.add(new PickCommand(prefix, talker));
 			
 			//last
 			cmds.add(new HelpCommand(prefix, cmds));

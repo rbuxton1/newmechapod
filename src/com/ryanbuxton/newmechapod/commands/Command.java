@@ -44,6 +44,16 @@ public class Command implements MessageCreateListener{
 		}
 		return args;
 	}
+	
+	public String[] parseArgsAsCommaList(String s) {
+		String[] getCmd = parseArgs(s);
+		String noCmd = "";
+		for(String a : getCmd) noCmd += a +" ";
+		noCmd = noCmd.substring(0, noCmd.length() - 1);
+		
+		String[] args = noCmd.split(", ");
+		return args;
+	}
 
 	@Override
 	public void onMessageCreate(MessageCreateEvent event) {
