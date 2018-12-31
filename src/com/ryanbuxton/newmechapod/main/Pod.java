@@ -40,10 +40,10 @@ import twitter4j.conf.ConfigurationBuilder;
 
 public class Pod {
 	private String token ="";
-	private String ver = "4.0.2";
-	private String patchNotes = "Official public release of mechapod! This version fixes some erros in the previous, namely the fact that"
-			+" the countdown function in the 'schedule' command would go negative. Other than that this version implements s system by which"
-			+ " we can load the preferences from a file (pod.config), allowing a user to set them through their text editing program of choice.";
+	private String ver = "4.1.0";
+	private String patchNotes = "Official public release of mechapod, plus some! I finally added two commands that I have personally wanted since "
+			+ "day one: the ability to pick an item from a comma seperrated list, and a remind me feature that works via direct messages. Both of "
+			+ "these commands are realitively straight forward and have entries in the help command.";
 	
 	public Pod() {
 		Preferences prefs = Preferences.userNodeForPackage(this.getClass());
