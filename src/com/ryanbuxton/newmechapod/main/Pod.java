@@ -48,7 +48,9 @@ public class Pod {
 	public Pod() {
 		Preferences prefs = Preferences.userNodeForPackage(this.getClass());
 		try {
-			prefs.importPreferences(new FileInputStream("pod.config"));
+			File f = new File("pod.config");
+			f.createNewFile();
+			prefs.importPreferences(new FileInputStream(f));
 		} catch (Exception e) { e.printStackTrace(); }
 		
 		if(prefs.get("discordToken", "NONE").equals("NONE")) {
@@ -152,6 +154,7 @@ public class Pod {
 				emb.setDescription(patchNotes);
 				emb.addField("Info", "this instance of mechapod has " + cmds.size() + " commands registered.");
 				if(prefs.getBoolean("allowTwitter", false)) emb.addField("Twitter", "yeah thats right, this pod has a twitter. ask bot owner for the @");
+				emb.addField("GitHub", "https://github.com/rbuxton1/newmechapod");
 				emb.setFooter("to disable this message, set 'announceChannel' to 'NONE'");
 				emb.setColor(Color.green);
 				api.getChannelById(announcementChannel).get().asServerTextChannel().get().sendMessage(emb);
