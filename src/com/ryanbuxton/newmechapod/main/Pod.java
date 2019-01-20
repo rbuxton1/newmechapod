@@ -40,10 +40,8 @@ import twitter4j.conf.ConfigurationBuilder;
 
 public class Pod {
 	private String token ="";
-	private String ver = "4.1.0";
-	private String patchNotes = "Official public release of mechapod, plus some! I finally added two commands that I have personally wanted since "
-			+ "day one: the ability to pick an item from a comma seperrated list, and a remind me feature that works via direct messages. Both of "
-			+ "these commands are realitively straight forward and have entries in the help command.";
+	private String ver = "4.2.0";
+	private String patchNotes = "Now has a minute schedule command. This is nice for rapid fire shitposts. ";
 	
 	public Pod() {
 		Preferences prefs = Preferences.userNodeForPackage(this.getClass());
@@ -144,6 +142,7 @@ public class Pod {
 			cmds.add(new ReloadPrefCommand(prefix, prefs));
 			cmds.add(new RemindCommand(prefix));
 			cmds.add(new PickCommand(prefix, talker));
+			cmds.add(new TalkTextScheduleMinuteCommand(prefix, api, talker));
 			
 			//last
 			cmds.add(new HelpCommand(prefix, cmds));

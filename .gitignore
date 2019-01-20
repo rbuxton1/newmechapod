@@ -2,3 +2,5 @@
 pod.config
 output.png
 tweet.png
+/.gradle/
+/build/
