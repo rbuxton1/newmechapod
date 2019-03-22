@@ -1,9 +1,14 @@
 package com.ryanbuxton.newmechapod.commands;
 
 import java.util.ArrayList;
+import java.util.prefs.Preferences;
 
+import org.javacord.api.entity.permission.Role;
+import org.javacord.api.event.Event;
 import org.javacord.api.event.message.MessageCreateEvent;
 import org.javacord.api.listener.message.MessageCreateListener;
+
+import com.ryanbuxton.newmechapod.settingmanager.Settings;
 
 public class Command implements MessageCreateListener{
 	private String prefix, cmd, about;
@@ -54,7 +59,20 @@ public class Command implements MessageCreateListener{
 		String[] args = noCmd.split(", ");
 		return args;
 	}
-
+	
+	public boolean isManager(Settings settings, MessageCreateEvent e) {
+		boolean r =  e.getMessageAuthor().asUser().get().getRoles(e.getServer().get()).contains(e.getServer().get().getRoleById(settings.manageRole).get());
+	
+		if(!r) {
+			System.out.println("INPROPPER PERMS: " + e.getMessageAuthor().getName());
+			for(Role role : e.getMessageAuthor().asUser().get().getRoles(e.getServer().get())) {
+				System.out.println("\t" + role.getName() + " [" + role.getIdAsString() + "]");
+			}
+		}
+		
+		return r;
+	}
+	
 	@Override
 	public void onMessageCreate(MessageCreateEvent event) {
 		

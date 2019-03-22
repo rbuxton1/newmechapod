@@ -4,11 +4,13 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
+import java.util.prefs.Preferences;
 
 import org.javacord.api.DiscordApi;
 import org.javacord.api.event.message.MessageCreateEvent;
 
 import com.ryanbuxton.nemechapod.util.ImageGenerator;
+import com.ryanbuxton.newmechapod.settingmanager.Settings;
 import com.ryanbuxton.newmechapod.talker.Talker;
 
 import net.dean.jraw.RedditClient;
@@ -20,19 +22,21 @@ public class TalkScheduleCommand extends Command {
 	private double timeR = -1;
 	private ImageGenerator igen;
 	private boolean reddit = false;
+	private Settings settings;
 	
-	public TalkScheduleCommand(String prefix, DiscordApi api, Talker talker, RedditClient rc, boolean reddit) {
+	public TalkScheduleCommand(String prefix, DiscordApi api, Talker talker, RedditClient rc, boolean reddit, Settings settings) {
 		super(prefix, "schedule", "schedules regular dosings of mechapod brand shitposts, just like the doctor ordered. Usage: '" + prefix+ " schedule [channel id] [delay (in hours)]'");
 		timer = new Timer();
 		this.api = api;
 		this.talker = talker;
 		igen = new ImageGenerator(rc, talker);
 		this.reddit = reddit;
+		this.settings = settings;
 	}
 
 	@Override
 	public void onMessageCreate(MessageCreateEvent e) {
-		if(super.isThisCommand(e.getMessageContent())) {
+		if(super.isThisCommand(e.getMessageContent()) && super.isManager(settings, e)) {
 			String[] args = super.parseArgs(e.getMessageContent());
 			timer.schedule(new TimerTask() {
 				@Override

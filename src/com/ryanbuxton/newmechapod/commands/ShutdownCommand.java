@@ -17,7 +17,7 @@ public class ShutdownCommand extends Command{
 	
 	@Override
 	public void onMessageCreate(MessageCreateEvent e) {
-		if(super.isThisCommand(e.getMessageContent()) && e.getMessage().getAuthor().isBotOwner()) {
+		if(super.isThisCommand(e.getMessageContent()) && e.getMessage().getAuthor().isBotOwner() ) {
 			Random gen = new Random();
 			e.getChannel().sendMessage(byes[gen.nextInt(byes.length)] + "disengaging");
 			try{ Thread.sleep(250); } catch (Exception ex) {}

@@ -1,20 +1,24 @@
 package com.ryanbuxton.newmechapod.commands;
 
+import java.util.prefs.Preferences;
+
 import org.javacord.api.event.message.MessageCreateEvent;
 
 import com.ryanbuxton.newmechapod.talker.Talker;
 
 public class TalkAddCommand extends Command{
 	private Talker talker;
+	private Preferences prefs;
 	
-	public TalkAddCommand(String prefix, Talker talker) {
+	public TalkAddCommand(String prefix, Talker talker, Preferences prefs) {
 		super(prefix, "add", "adds to mechapods famous talk box. Usage: '" + prefix + " add [noun|verb|adv|adj|template] [item]'");
 		this.talker = talker;
+		this.prefs = prefs;
 	}
 	
 	@Override
 	public void onMessageCreate(MessageCreateEvent e) {
-		if(super.isThisCommand(e.getMessageContent())) {
+		if(super.isThisCommand(e.getMessageContent()) /*&& super.isManager(settings, e)*/) {
 			String[] args = super.parseArgs(e.getMessageContent());
 			String type = args[0].toLowerCase();
 			String data = "";

@@ -9,4 +9,16 @@ dependencies {
     implementation "net.dean.jraw:JRAW:1.1.0"
     compile 'org.twitter4j:twitter4j-core:4.0.2'
     compile 'com.vdurmont:emoji-java:4.0.0'
+    compile 'org.yaml:snakeyaml:1.19'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/']
+        }
+        resources {
+            srcDirs = ['src/']
+        }
+    }
 }
